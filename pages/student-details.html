@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student's Fighting Pit</title>
+</head>
+
+<body>
+
+  <header>
+    <h1>Student's Fighting Pit</h1>
+    <img src="../images/logo.jpg" alt="SFP Logo">
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="">Strona główna</a></li>
+      <li><a href="">Studenci</a></li>
+      <li><a href="">Komisje</a></li>
+      <li><a href="">Rezultaty</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>Szczegóły studenta</h2>
+    <form>
+      <div>
+        <label for="firstName">Imię:<sup>*</sup></label>
+        <input type="text" name="firstName" id="firstName" value="Jan" disabled />
+      </div>
+      <div>
+        <label for="lastName">Nazwisko:<sup>*</sup></label>
+        <input type="text" name="lastName" id="lastName" value="Kowalski" disabled />
+      </div>
+      <div>
+        <label for="index">Indeks:<sup>*</sup></label>
+        <input type="number" name="index" id="index" min="1" max="999" value="100" disabled />
+      </div>
+      <div>
+        <label for="course">Kierunek:<sup>*</sup></label>
+        <input type="text" name="course" id="course" value="Informatyczne Karate" disabled />
+      </div>
+      <div>
+        <a href="">Edytuj</a>
+      </div>
+    </form>
+
+    <h2>Szczegóły walk</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Komisja</th>
+          <th>Data walki</th>
+          <th>Rezultat</th>
+          <th>Ocena</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Javaszewy</td>
+          <td>01.06.2019</td>
+          <td>Całkowity pogrom</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>Javaszewy</td>
+          <td>08.10.2019</td>
+          <td>Ocena z litości</td>
+          <td>3</td>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+      <a href="">Powrót</a>
+    </div>
+  </main>
+
+  <footer>
+    Imię, nazwisko, numer studencki
+  </footer>
+
+</body>
+
+</html>
