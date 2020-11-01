@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student's Fighting Pit</title>
+</head>
+
+<body>
+
+  <header>
+    <h1>Student's Fighting Pit</h1>
+    <img src="../images/logo.jpg" alt="SFP Logo">
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="">Strona główna</a></li>
+      <li><a href="">Studenci</a></li>
+      <li><a href="">Komisje</a></li>
+      <li><a href="">Rezultaty</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>Dodaj nowego studenta</h2>
+    <form>
+      <div>
+        <label for="firstName">Imię:<sup>*</sup></label>
+        <input type="text" name="firstName" id="firstName" />
+      </div>
+      <div>
+        <label for="lastName">Nazwisko:<sup>*</sup></label>
+        <input type="text" name="lastName" id="lastName" />
+      </div>
+      <div>
+        <label for="index">Indeks:<sup>*</sup></label>
+        <input type="number" name="index" id="index" min="1" max="999">
+      </div>
+      <div>
+        <label for="course">Kierunek:<sup>*</sup></label>
+        <input type="text" name="course" id="course" />
+      </div>
+      <div>
+        <input type="submit" value="Dodaj" />
+        <a href="">Anuluj</a>
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    Imię, nazwisko, numer studencki
+  </footer>
+
+</body>
+
+</html>
