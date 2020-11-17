@@ -4,7 +4,7 @@ html {
 }
 
 body {
-  min-width: 600px;
+  min-width: 360px;
 }
 
 header, 
@@ -27,7 +27,7 @@ footer {
     padding: 1rem;
 }
 
-header {
+/* header {
   overflow: auto;
 }
 
@@ -37,6 +37,11 @@ header h1 {
 
 header img {
   float: right;
+} */
+
+header {
+  display: flex;
+  justify-content: space-between;
 }
 
 nav {
@@ -44,14 +49,15 @@ nav {
 }
 
 nav ul {
+  display: flex;
   padding: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
   list-style-type: none;
 }
 
-nav ul li {
+/* nav ul li {
   float: left;
-}
+} */
 
 nav ul li a {
   display: inline-block;
@@ -232,8 +238,11 @@ textarea {
 }
 
 .form {
-  margin-left: 2rem;
-  width: 300px;
+  /* margin-left: 2rem; */
+  /* width: 300px; */
+  display: grid;
+  grid-template-columns: 150px 300px;
+  row-gap: 1rem;
 }
 
 .form select, 
@@ -262,6 +271,94 @@ sup {
 }
 
 .form-buttons{
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
+  grid-column-start: 1;
+  grid-column-end: -1;
 }
 
+.details-form {
+  display: grid;
+  row-gap: 1rem;
+}
+
+.details-back{
+  margin-top: 1rem;
+}
+
+@media all and (max-width: 890px) {
+  .list-actions{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;  
+    align-content: center;
+  }
+
+  .list-actions li {
+    display: flex;
+    margin-bottom: 0.5rem;
+  }
+
+}
+
+@media all and (max-width: 720px) {
+  header {
+    flex-direction: column;
+  }
+
+  header h1 {
+      text-align: center;
+  } 
+
+  header img {
+      align-self: center;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+  }
+
+  nav ul li {
+    flex-basis: 50%;
+    text-align: center;
+  }
+
+  nav ul li a {
+    display: block;
+  }
+
+  .form {
+    grid-template-columns: 1fr;
+    row-gap:unset;
+    margin-left: unset;
+  }
+
+  .form input[type="text"],
+  .form input[type="number"],
+  .form input[type="date"],
+  .form select {
+      margin-bottom: 1rem;
+  }
+
+}
+
+@media all and (max-width: 560px) {
+  .table-list {
+    font-size: 0.8rem;
+  }
+}
+
+@media all and (max-width: 400px) {
+
+  body, 
+  nav, 
+  nav ul, 
+  header, 
+  main, 
+  footer {
+      margin: 0;
+  }
+
+  nav ul li {
+    flex-basis: 100%;
+  }
+}

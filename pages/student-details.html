@@ -17,8 +17,8 @@
 
   <nav>
     <ul>
-      <li><a href="">Strona główna</a></li>
-      <li><a href="" class="active">Studenci</a></li>
+      <li><a href="../index.html">Strona główna</a></li>
+      <li><a href="./students-list.html" class="active">Studenci</a></li>
       <li><a href="">Komisje</a></li>
       <li><a href="">Rezultaty</a></li>
     </ul>
@@ -26,25 +26,25 @@
 
   <main>
     <h2>Szczegóły studenta</h2>
-    <form>
-      <div>
+    <form class="details-form">
+      <div class="form">
         <label for="firstName">Imię:<sup>*</sup></label>
         <input type="text" name="firstName" id="firstName" value="Jan" disabled />
       </div>
-      <div>
+      <div class="form">
         <label for="lastName">Nazwisko:<sup>*</sup></label>
         <input type="text" name="lastName" id="lastName" value="Kowalski" disabled />
       </div>
-      <div>
+      <div class="form">
         <label for="index">Indeks:<sup>*</sup></label>
         <input type="number" name="index" id="index" min="1" max="999" value="100" disabled />
       </div>
-      <div>
+      <div class="form">
         <label for="course">Kierunek:<sup>*</sup></label>
         <input type="text" name="course" id="course" value="Informatyczne Karate" disabled />
       </div>
-      <div>
-        <a href="">Edytuj</a>
+      <div class="form-buttons">
+        <a class="list-actions-button-edit" href="./student-form.html">Edytuj</a>
       </div>
     </form>
 
@@ -73,8 +73,8 @@
         </tr>
       </tbody>
     </table>
-    <div>
-      <a href="">Powrót</a>
+    <div class="details-back">
+      <a class="list-actions-button-delete" href="./students-list.html">Powrót</a>
     </div>
   </main>
 

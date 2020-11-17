@@ -17,8 +17,8 @@
 
   <nav>
     <ul>
-      <li><a href="">Strona główna</a></li>
-      <li><a href="" class="active">Studenci</a></li>
+      <li><a href="../index.html">Strona główna</a></li>
+      <li><a href="./students-list.html" class="active">Studenci</a></li>
       <li><a href="">Komisje</a></li>
       <li><a href="">Rezultaty</a></li>
     </ul>
@@ -27,25 +27,25 @@
   <main>
     <h2>Dodaj nowego studenta</h2>
     <form class="form">
-      <div class="form-group">
-        <label for="firstName">Imię:<sup>*</sup></label>
-        <input type="text" name="firstName" id="firstName" />
-      </div>
-      <div class="form-group">
-        <label for="lastName">Nazwisko:<sup>*</sup></label>
-        <input type="text" name="lastName" id="lastName" />
-      </div>
-      <div class="form-group">
-        <label for="index">Indeks:<sup>*</sup></label>
-        <input type="number" name="index" id="index" min="1" max="999">
-      </div>
-      <div class="form-group">
-        <label for="course">Kierunek:<sup>*</sup></label>
-        <input type="text" name="course" id="course" />
-      </div>
+      <!-- <div class="form-group"> -->
+      <label for="firstName">Imię:<sup>*</sup></label>
+      <input type="text" name="firstName" id="firstName" />
+      <!-- </div> -->
+      <!-- <div class="form-group"> -->
+      <label for="lastName">Nazwisko:<sup>*</sup></label>
+      <input type="text" name="lastName" id="lastName" />
+      <!-- </div> -->
+      <!-- <div class="form-group"> -->
+      <label for="index">Indeks:<sup>*</sup></label>
+      <input type="number" name="index" id="index" min="1" max="999">
+      <!-- </div> -->
+      <!-- <div class="form-group"> -->
+      <label for="course">Kierunek:<sup>*</sup></label>
+      <input type="text" name="course" id="course" />
+      <!-- </div> -->
       <div class="form-buttons">
         <input type="submit" value="Dodaj" class="form-button-submit" />
-        <a href="" class="form-button-cancel">Anuluj</a>
+        <a href="./students-list.html" class="form-button-cancel">Anuluj</a>
       </div>
     </form>
   </main>
