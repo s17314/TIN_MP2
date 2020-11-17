@@ -93,6 +93,7 @@ main h2 {
   border-collapse: collapse;
   color:#2c3e50;
   width: 100%;
+  text-align: center;
 }
 
 .table-list,
