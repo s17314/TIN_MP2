@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css" />
+  <title>Student's Fighting Pit</title>
+</head>
+
+<body>
+
+  <header>
+    <h1>Student's Fighting Pit</h1>
+    <img src="../../images/logo.jpg" alt="SFP Logo">
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../../index.html">Strona główna</a></li>
+      <li><a href="../students/students-list.html">Studenci</a></li>
+      <li><a href="../committees/comittees-list.html">Komisje</a></li>
+      <li><a class="active" href="">Rezultaty</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>Dodaj nowy rezultat</h2>
+    <form class="form">
+      <label for="student">Student:<sup>*</sup></label>
+      <input list="students" name="student" id="student" />
+      <datalist id="students">
+        <option value="Jan Kowalski">
+        <option value="Adam Barański">
+        <option value="Karolina Dreszowska">
+      </datalist>
+      <label for="comittee">Komisja:<sup>*</sup></label>
+      <input list="comittees" name="comittee" id="comittee" />
+      <datalist id="comittees">
+        <option value="Javaszewy">
+        <option value="Robociarze">
+        <option value="PRImadonny">
+      </datalist>
+      <label for="date">Data walki:<sup>*</sup></label>
+      <input type="date" name="date" id="date">
+      <label for="result">Rezultat:<sup>*</sup></label>
+      <input type="text" name="result" id="result">
+      <label for="grade">Ocena:<sup>*</sup></label>
+      <input type="number" name="grade" id="grade" min=2 max=4>
+      <div class="form-buttons">
+        <input type="submit" value="Dodaj" class="form-button-submit" />
+        <a href="./results-list.html" class="form-button-cancel">Anuluj</a>
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    Imię, nazwisko, numer studencki
+  </footer>
+
+</body>
+
+</html>
