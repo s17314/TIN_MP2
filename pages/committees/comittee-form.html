@@ -13,6 +13,8 @@
   <header>
     <h1>Student's Fighting Pit</h1>
     <img src="../../images/logo.jpg" alt="SFP Logo">
+    <script type="application/javascript" src="../../js/validationCommon.js"></script>
+    <script type="application/javascript" src="../../js/validationCommitteeForm.js"></script>
   </header>
 
   <nav>
@@ -26,14 +28,21 @@
 
   <main>
     <h2>Dodaj nową komisję</h2>
-    <form class="form">
+    <form class="form" novalidate onsubmit="return validateForm();">
       <label for="name">Nazwa:<sup>*</sup></label>
       <input type="text" name="name" id="name" />
+      <span id="errorName" class="errors-text"></span>
+
       <label for="members">Liczba członków:<sup>*</sup></label>
-      <input type="text" name="members" id="members" />
+      <input type="number" name="members" id="members" min="1" max="9" />
+      <span id="errorMembers" class="errors-text"></span>
+
       <label for="difficulty">Poziom trudności:<sup>*</sup></label>
       <input type="text" name="difficulty" id="difficulty">
+      <span id="errorDifficulty" class="errors-text"></span>
+
       <div class="form-buttons">
+        <p id="errorsSummary" class="errors-text"></p>
         <input type="submit" value="Dodaj" class="form-button-submit" />
         <a href="./comittees-list.html" class="form-button-cancel">Anuluj</a>
       </div>

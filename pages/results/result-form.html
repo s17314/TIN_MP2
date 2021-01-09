@@ -13,6 +13,8 @@
   <header>
     <h1>Student's Fighting Pit</h1>
     <img src="../../images/logo.jpg" alt="SFP Logo">
+    <script type="application/javascript" src="../../js/validationCommon.js"></script>
+    <script type="application/javascript" src="../../js/validateResultForm.js"></script>
   </header>
 
   <nav>
@@ -26,7 +28,7 @@
 
   <main>
     <h2>Dodaj nowy rezultat</h2>
-    <form class="form">
+    <form class="form" novalidate onsubmit="return validateForm();">
       <label for="student">Student:<sup>*</sup></label>
       <input list="students" name="student" id="student" />
       <datalist id="students">
@@ -34,6 +36,8 @@
         <option value="Adam Barański">
         <option value="Karolina Dreszowska">
       </datalist>
+      <span id="errorStudent" class="errors-text"></span>
+
       <label for="comittee">Komisja:<sup>*</sup></label>
       <input list="comittees" name="comittee" id="comittee" />
       <datalist id="comittees">
@@ -41,13 +45,22 @@
         <option value="Robociarze">
         <option value="PRImadonny">
       </datalist>
+      <span id="errorComittee" class="errors-text"></span>
+
       <label for="date">Data walki:<sup>*</sup></label>
       <input type="date" name="date" id="date">
+      <span id="errorDate" class="errors-text"></span>
+
       <label for="result">Rezultat:<sup>*</sup></label>
       <input type="text" name="result" id="result">
+      <span id="errorResult" class="errors-text"></span>
+
       <label for="grade">Ocena:<sup>*</sup></label>
       <input type="number" name="grade" id="grade" min=2 max=4>
+      <span id="errorGrade" class="errors-text"></span>
+
       <div class="form-buttons">
+        <p id="errorsSummary" class="errors-text"></p>
         <input type="submit" value="Dodaj" class="form-button-submit" />
         <a href="./results-list.html" class="form-button-cancel">Anuluj</a>
       </div>

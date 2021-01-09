@@ -239,19 +239,19 @@ textarea {
 }
 
 .form {
-  /* margin-left: 2rem; */
-  /* width: 300px; */
   display: grid;
-  grid-template-columns: 150px 300px;
+  grid-template-columns: 150px 300px 1fr;
   row-gap: 1rem;
+  column-gap: 1rem;
 }
 
 .form select, 
 .form input[type="text"],
 .form input[type="number"],
 .form input[type="date"],
-.form input[type="email"] {
-    border: 1px solid #7f8c8d;
+.form input[type="email"],
+.form input[list] {
+    border: 1px solid #26484b;
     color:#2c3e50;
     border-radius: 5px;
     padding: 0.5rem;
@@ -272,9 +272,8 @@ sup {
 }
 
 .form-buttons{
-  /* margin-top: 2rem; */
-  grid-column-start: 1;
   grid-column-end: -1;
+  grid-column: 1 / span 2;
 }
 
 .details-form {
@@ -284,6 +283,17 @@ sup {
 
 .details-back{
   margin-top: 1rem;
+}
+
+.errors-text {
+  color: #c0392b;
+  font-size: 0.85em;
+  line-height: 2.25rem;
+}
+
+.form input.error-input,
+.form select.error-input {
+  border: 3px solid #e74c3c
 }
 
 @media all and (max-width: 890px) {
@@ -333,11 +343,12 @@ sup {
     margin-left: unset;
   }
 
-  .form input[type="text"],
-  .form input[type="number"],
-  .form input[type="date"],
-  .form select {
-      margin-bottom: 1rem;
+  .form .errors-text {
+    margin-bottom: 1rem;
+  }
+
+  .form-buttons {
+    grid-column: 1 / span 1; 
   }
 
 }
