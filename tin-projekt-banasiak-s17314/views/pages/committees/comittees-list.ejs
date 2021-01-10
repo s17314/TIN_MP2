@@ -1,0 +1,74 @@
+<%- include('../../fragments/header.ejs') %>
+
+  <main>
+    <h2>Lista komisji</h2>
+    <table class="table-list">
+      <thead>
+        <tr>
+          <th>Nazwa</th>
+          <th>Liczba członków</th>
+          <th>Poziom trudności</th>
+          <th>Akcje</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Javaszewy</td>
+          <td>3</td>
+          <td>999999+</td>
+          <td>
+            <ul class="list-actions">
+              <li>
+                <a href="./committees/details/1" class="list-actions-button-details">Szczegóły</a>
+              </li>
+              <li>
+                <a href="./committees/add" class="list-actions-button-edit">Edytuj</a>
+              </li>
+              <li>
+                <a href="" class="list-actions-button-delete">Usuń</a>
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>Robociarze</td>
+          <td>2</td>
+          <td>0b11000011010011111</td>
+          <td>
+            <ul class="list-actions">
+              <li>
+                <a href="./committees/details/1" class="list-actions-button-details">Szczegóły</a>
+              </li>
+              <li>
+                <a href="./committees/add" class="list-actions-button-edit">Edytuj</a>
+              </li>
+              <li>
+                <a href="" class="list-actions-button-delete">Usuń</a>
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>PRImadonny</td>
+          <td>4</td>
+          <td>Nietrywialny</td>
+          <td>
+            <ul class="list-actions">
+              <li>
+                <a href="./committees/details/1" class="list-actions-button-details">Szczegóły</a>
+              </li>
+              <li>
+                <a href="./committees/add" class="list-actions-button-edit">Edytuj</a>
+              </li>
+              <li>
+                <a href="" class="list-actions-button-delete">Usuń</a>
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p><a href="./committees/add" class="button-add">Dodaj nową komisję</a></p>
+  </main>
+
+  <%- include('../../fragments/footer.ejs') %>

@@ -1,0 +1,36 @@
+<%- include('../../fragments/header.ejs') %>
+
+  <main>
+    <h2>Dodaj nowego studenta</h2>
+    <form class="form" novalidate onsubmit="return validateForm();">
+      <label for="firstName">Imię:<sup>*</sup></label>
+      <input type="text" name="firstName" id="firstName" placeholder="2-60 znaków" />
+      <span id="errorFirstName" class="errors-text"></span>
+
+      <label for="lastName">Nazwisko:<sup>*</sup></label>
+      <input type="text" name="lastName" id="lastName" placeholder="2-60 znaków" />
+      <span id="errorLastName" class="errors-text"></span>
+
+      <label for="index">Indeks:<sup>*</sup></label>
+      <input type="number" name="index" id="index" min="1" max="999">
+      <span id="errorIndex" class="errors-text"></span>
+
+      <label for="course">Kierunek:<sup>*</sup></label>
+      <input list="courses" name="course" id="course" />
+      <datalist id="courses">
+        <option value="Informatyczne Karate">
+        <option value="Zarządzanie Łomotem">
+        <option value="Sztuka Nowych Zapasów">
+      </datalist>
+      <span id="errorCourse" class="errors-text"></span>
+
+      <div class="form-buttons">
+        <p id="errorsSummary" class="errors-text"></p>
+        <input type="submit" value="Dodaj" class="form-button-submit" />
+        <a href="/students" class="form-button-cancel">Anuluj</a>
+      </div>
+    </form>
+  </main>
+
+
+  <%- include('../../fragments/footer.ejs') %>

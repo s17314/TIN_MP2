@@ -1,0 +1,26 @@
+<%- include('../../fragments/header.ejs') %>
+
+  <main>
+    <h2>Dodaj nową komisję</h2>
+    <form class="form" novalidate onsubmit="return validateForm();">
+      <label for="name">Nazwa:<sup>*</sup></label>
+      <input type="text" name="name" id="name" />
+      <span id="errorName" class="errors-text"></span>
+
+      <label for="members">Liczba członków:<sup>*</sup></label>
+      <input type="number" name="members" id="members" min="1" max="9" />
+      <span id="errorMembers" class="errors-text"></span>
+
+      <label for="difficulty">Poziom trudności:<sup>*</sup></label>
+      <input type="text" name="difficulty" id="difficulty">
+      <span id="errorDifficulty" class="errors-text"></span>
+
+      <div class="form-buttons">
+        <p id="errorsSummary" class="errors-text"></p>
+        <input type="submit" value="Dodaj" class="form-button-submit" />
+        <a href="/committees" class="form-button-cancel">Anuluj</a>
+      </div>
+    </form>
+  </main>
+
+  <%- include('../../fragments/footer.ejs') %>

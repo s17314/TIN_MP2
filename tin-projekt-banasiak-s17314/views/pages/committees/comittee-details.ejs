@@ -1,0 +1,53 @@
+<%- include('../../fragments/header.ejs') %>
+
+  <main>
+    <h2>Szczegóły komisji</h2>
+    <form class="details-form">
+      <div class="form">
+        <label for="name">Nazwa:<sup>*</sup></label>
+        <input type="text" name="name" id="name" value="Javaszewy" disabled />
+      </div>
+      <div class="form">
+        <label for="members">Liczba członków:<sup>*</sup></label>
+        <input type="text" name="members" id="members" value="3" disabled />
+      </div>
+      <div class="form">
+        <label for="difficulty">Poziom trudności:<sup>*</sup></label>
+        <input type="text" name="difficulty" id="difficulty" value="999999+" disabled />
+      </div>
+      <div class="form-buttons">
+        <a class="list-actions-button-edit" href="/committees/add">Edytuj</a>
+      </div>
+    </form>
+
+    <h2>Szczegóły walk</h2>
+    <table class="table-list">
+      <thead>
+        <tr>
+          <th>Student</th>
+          <th>Data walki</th>
+          <th>Rezultat</th>
+          <th>Ocena</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Jan Kowalski</td>
+          <td>01.06.2019</td>
+          <td>Całkowity pogrom</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>Jan Kowalski</td>
+          <td>08.10.2019</td>
+          <td>Ocena z litości</td>
+          <td>3</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="details-back">
+      <a class="list-actions-button-delete" href="/committees">Powrót</a>
+    </div>
+  </main>
+
+  <%- include('../../fragments/footer.ejs') %>

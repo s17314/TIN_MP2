@@ -1,0 +1,35 @@
+<%- include('../../fragments/header.ejs') %>
+
+  <main>
+    <h2>Szczegóły rezultatu</h2>
+    <form class="details-form">
+      <div class="form">
+        <label for="student">Student:<sup>*</sup></label>
+        <input type="text" name="student" id="student" value="Jan Kowalski" disabled />
+      </div>
+      <div class="form">
+        <label for="comittee">Komisja:<sup>*</sup></label>
+        <input type="text" name="comittee" id="comittee" value="Javaszewy" disabled />
+      </div>
+      <div class="form">
+        <label for="date">Data walki:<sup>*</sup></label>
+        <input type="text" name="date" id="date" value="08.10.2019" disabled />
+      </div>
+      <div class="form">
+        <label for="inresultdex">Rezultat:<sup>*</sup></label>
+        <input type="text" name="result" id="result" value="Ocena z litości" disabled />
+      </div>
+      <div class="form">
+        <label for="grade">Ocena:<sup>*</sup></label>
+        <input type="text" name="grade" id="grade" value="3" disabled />
+      </div>
+      <div class="form-buttons">
+        <a class="list-actions-button-edit" href="/results/add">Edytuj</a>
+      </div>
+    </form>
+    <div class="details-back">
+      <a class="list-actions-button-delete" href="/results">Powrót</a>
+    </div>
+  </main>
+
+  <%- include('../../fragments/footer.ejs') %>
