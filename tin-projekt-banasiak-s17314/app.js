@@ -8,6 +8,10 @@ var indexRouter = require('./routes/index');
 const studentRouter = require('./routes/studentRoute');
 const committeeRoute = require('./routes/committeeRoute');
 const resultRoute = require('./routes/resultRoute');
+const sequelizeInit = require('./config/sequelize/init');
+const studApiRouter = require('./routes/api/StudentApiRoute');
+const commApiRouter = require('./routes/api/CommitteeApiRoute');
+const resultApiRouter = require('./routes/api/ResultApiRoute');
 
 var app = express();
 
@@ -26,6 +30,9 @@ app.use('/students', studentRouter);
 app.use('/committees', committeeRoute);
 app.use('/results', resultRoute);
 
+app.use('/api/students', studApiRouter);
+app.use('/api/committees', commApiRouter);
+app.use('/api/results', resultApiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -42,5 +49,11 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+sequelizeInit()
+    .catch(err => {
+        console.log(err);
+    });
+
 
 module.exports = app;

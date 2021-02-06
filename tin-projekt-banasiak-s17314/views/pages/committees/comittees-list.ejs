@@ -12,63 +12,29 @@
         </tr>
       </thead>
       <tbody>
+        <% for (let comm of comms) { %>
         <tr>
-          <td>Javaszewy</td>
-          <td>3</td>
-          <td>999999+</td>
+          <td><%= comm.name %></td>
+          <td><%= comm.members %></td>
+          <td><%= comm.difficulty %></td>
           <td>
             <ul class="list-actions">
               <li>
-                <a href="./committees/details/1" class="list-actions-button-details">Szczegóły</a>
+                <a href="/committees/details/<%=comm._id%>" class="list-actions-button-details">Szczegóły</a>
               </li>
               <li>
-                <a href="./committees/add" class="list-actions-button-edit">Edytuj</a>
+                <a href="/committees/edit/<%=comm._id%>" class="list-actions-button-edit">Edytuj</a>
               </li>
               <li>
-                <a href="" class="list-actions-button-delete">Usuń</a>
+                <a href="/committees/delete/<%=comm._id%>" class="list-actions-button-delete">Usuń</a>
               </li>
             </ul>
           </td>
         </tr>
-        <tr>
-          <td>Robociarze</td>
-          <td>2</td>
-          <td>0b11000011010011111</td>
-          <td>
-            <ul class="list-actions">
-              <li>
-                <a href="./committees/details/1" class="list-actions-button-details">Szczegóły</a>
-              </li>
-              <li>
-                <a href="./committees/add" class="list-actions-button-edit">Edytuj</a>
-              </li>
-              <li>
-                <a href="" class="list-actions-button-delete">Usuń</a>
-              </li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>PRImadonny</td>
-          <td>4</td>
-          <td>Nietrywialny</td>
-          <td>
-            <ul class="list-actions">
-              <li>
-                <a href="./committees/details/1" class="list-actions-button-details">Szczegóły</a>
-              </li>
-              <li>
-                <a href="./committees/add" class="list-actions-button-edit">Edytuj</a>
-              </li>
-              <li>
-                <a href="" class="list-actions-button-delete">Usuń</a>
-              </li>
-            </ul>
-          </td>
-        </tr>
+        <% } %>
       </tbody>
     </table>
-    <p><a href="./committees/add" class="button-add">Dodaj nową komisję</a></p>
+    <p><a href="/committees/add" class="button-add">Dodaj nową komisję</a></p>
   </main>
 
   <%- include('../../fragments/footer.ejs') %>

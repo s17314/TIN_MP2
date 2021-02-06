@@ -1,35 +1,66 @@
 <%- include('../../fragments/header.ejs') %>
 
   <main>
-    <h2>Szczegóły rezultatu</h2>
-    <form class="details-form">
+    <script type="application/javascript" src="/js/validateResultForm.js"></script>
+    <h2><%= pageTitle %></h2>
+    <form class="details-form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+      <input type="hidden" name="_id" value="<%= result._id %>">
+
       <div class="form">
         <label for="student">Student:<sup>*</sup></label>
-        <input type="text" name="student" id="student" value="Jan Kowalski" disabled />
+      <select id="student" name="studId" required <%= (formMode == 'showDetails') ? 'disabled' : ''%> >
+        <option value="" selected>--- Wybierz studenta ---</option>
+        <% for (let i=0; i<allStuds.length; i++) { let stud = allStuds[i]; %>
+            <option value="<%= stud._id %>" label="<%= stud.firstName + ' ' + stud.lastName %>"
+                <%= (result._id && stud._id.toString() == result.committee._id.toString()) ? 'selected' : ''%>></option>
+        <% } %>
+      </select>
       </div>
+
       <div class="form">
         <label for="comittee">Komisja:<sup>*</sup></label>
-        <input type="text" name="comittee" id="comittee" value="Javaszewy" disabled />
+        <select id="comittee" name="commId" required <%= (formMode == 'showDetails') ? 'disabled' : ''%> >
+          <option value="" selected>--- Wybierz komisję ---</option>
+          <% for (let i=0; i<allComms.length; i++) { let comm= allComms[i]; %>
+            <option value="<%= comm._id %>" label="<%= comm.name %>"
+              <%= (result._id && comm._id.toString() == result.student._id.toString()) ? 'selected' : ''%>></option>
+          <% } %>
+        </select>
       </div>
+
       <div class="form">
         <label for="date">Data walki:<sup>*</sup></label>
-        <input type="text" name="date" id="date" value="08.10.2019" disabled />
+        <input type="text" name="date" id="date" value="<%= result.date %>" 
+        <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+      <span id="errorDate" class="errors-text"></span>
       </div>
+
       <div class="form">
-        <label for="inresultdex">Rezultat:<sup>*</sup></label>
-        <input type="text" name="result" id="result" value="Ocena z litości" disabled />
+        <label for="result">Rezultat:<sup>*</sup></label>
+        <input type="text" name="result" id="result" value="<%= result.resultName %>" 
+        <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+        <span id="errorResult" class="errors-text"></span>
       </div>
+
       <div class="form">
         <label for="grade">Ocena:<sup>*</sup></label>
-        <input type="text" name="grade" id="grade" value="3" disabled />
+        <input type="text" name="grade" id="grade" value="<%= result.grade %>" 
+        <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+        <span id="errorGrade" class="errors-text"></span>
       </div>
+      
       <div class="form-buttons">
-        <a class="list-actions-button-edit" href="/results/add">Edytuj</a>
+        <p id="errorsSummary" class="errors-text"></p>
+        <% if (formMode != 'showDetails') { %>
+            <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+            <a class="form-button-cancel" href="/results">Anuluj</a>
+        <% } else { %>
+            <a class="form-button-cancel" href="/results">Powrót</a>
+        <% } %>
       </div>
+
     </form>
-    <div class="details-back">
-      <a class="list-actions-button-delete" href="/results">Powrót</a>
-    </div>
+
   </main>
 
   <%- include('../../fragments/footer.ejs') %>

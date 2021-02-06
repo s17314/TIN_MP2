@@ -13,63 +13,28 @@
         </tr>
       </thead>
       <tbody>
+        <% for (let stud of studs) { %>
         <tr>
-          <td>Jan</td>
-          <td>Kowalski</td>
-          <td>100</td>
-          <td>Informatyczne Karate</td>
+          <td><%= stud.firstName %></td>
+          <td><%= stud.lastName %></td>
+          <td><%= stud.index %></td>
+          <td><%= stud.course %></td>
           <td>
             <ul class="list-actions">
               <li>
-                <a href="/students/details/1" class="list-actions-button-details">Szczegóły</a>
+                <a href="/students/details/<%=stud._id%>" class="list-actions-button-details">Szczegóły</a>
               </li>
               <li>
-                <a href="/students/add" class="list-actions-button-edit">Edytuj</a>
+                <a href="/students/edit/<%=stud._id%>" class="list-actions-button-edit">Edytuj</a>
               </li>
               <li>
-                <a href="" class="list-actions-button-delete">Usuń</a>
+                <a href="/students/delete/<%=stud._id%>" class="list-actions-button-delete">Usuń</a>
               </li>
             </ul>
           </td>
         </tr>
         <tr>
-          <td>Adam</td>
-          <td>Barański</td>
-          <td>201</td>
-          <td>Zarządzanie Łomotem</td>
-          <td>
-            <ul class="list-actions">
-              <li>
-                <a href="/students/details/1" class="list-actions-button-details">Szczegóły</a>
-              </li>
-              <li>
-                <a href="/students/add" class="list-actions-button-edit">Edytuj</a>
-              </li>
-              <li>
-                <a href="" class="list-actions-button-delete">Usuń</a>
-              </li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>Karolina</td>
-          <td>Dreszowska</td>
-          <td>324</td>
-          <td>Sztuka Nowych Zapasów</td>
-          <td>
-            <ul class="list-actions">
-              <li>
-                <a href="/students/details/1" class="list-actions-button-details">Szczegóły</a>
-              </li>
-              <li>
-                <a href="/students/add" class="list-actions-button-edit">Edytuj</a>
-              </li>
-              <li>
-                <a href="" class="list-actions-button-delete">Usuń</a>
-              </li>
-            </ul>
-          </td>
-        </tr>
+        <% } %>
       </tbody>
     </table>
     <p><a href="/students/add" class="button-add">Dodaj nowego studenta</a></p>

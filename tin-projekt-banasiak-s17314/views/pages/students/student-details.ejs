@@ -1,56 +1,82 @@
 <%- include('../../fragments/header.ejs') %>
 
   <main>
-    <h2>Szczegóły studenta</h2>
-    <form class="details-form">
-      <div class="form">
-        <label for="firstName">Imię:<sup>*</sup></label>
-        <input type="text" name="firstName" id="firstName" value="Jan" disabled />
-      </div>
-      <div class="form">
-        <label for="lastName">Nazwisko:<sup>*</sup></label>
-        <input type="text" name="lastName" id="lastName" value="Kowalski" disabled />
-      </div>
-      <div class="form">
-        <label for="index">Indeks:<sup>*</sup></label>
-        <input type="number" name="index" id="index" min="1" max="999" value="100" disabled />
-      </div>
-      <div class="form">
-        <label for="course">Kierunek:<sup>*</sup></label>
-        <input type="text" name="course" id="course" value="Informatyczne Karate" disabled />
-      </div>
-      <div class="form-buttons">
-        <a class="list-actions-button-edit" href="/students/add">Edytuj</a>
-      </div>
-    </form>
+    <script type="application/javascript" src="/js/validationStudentForm.js"></script>
+    <h2><%= pageTitle %></h2>
+    <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+      <input type="hidden" name="_id" value="<%= stud._id %>">
 
+      <label for="firstName">Imię:<sup>*</sup></label>
+      <input type="text" name="firstName" id="firstName" placeholder="2-60 znaków" value="<%= stud.firstName %>"
+        <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+      <span id="errorFirstName" class="errors-text"></span>
+
+      <label for="lastName">Nazwisko:<sup>*</sup></label>
+      <input type="text" name="lastName" id="lastName" placeholder="2-60 znaków" value="<%= stud.lastName %>"
+        <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+      <span id="errorLastName" class="errors-text"></span>
+
+      <label for="index">Indeks:<sup>*</sup></label>
+      <input type="number" name="index" id="index" min="1" max="999" value="<%= stud.index %>"
+        <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+      <span id="errorIndex" class="errors-text"></span>
+
+      <label for="course">Kierunek:<sup>*</sup></label>
+      <input list="courses" name="course" id="course" value="<%= stud.course %>"
+        <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+      <datalist id="courses">
+        <option value="Informatyczne Karate">
+        <option value="Zarządzanie Łomotem">
+        <option value="Sztuka Nowych Zapasów">
+      </datalist>
+      <span id="errorCourse" class="errors-text"></span>
+
+      <% if (formMode == 'showDetails') { %>
+        <div class="section-buttons">
+            <a href="/students/edit/<%= stud._id %>" class="list-actions-button-edit">Edytuj</a>
+        </div>
+        <% } %>
+
+      <div class="form-buttons">
+          <p id="errorsSummary" class="errors-text"></p>
+          <% if (formMode != 'showDetails') { %>
+              <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+              <a class="form-button-cancel" href="/students">Anuluj</a>
+          <% } else { %>
+              <a class="form-button-cancel" href="/students">Powrót</a>
+          <% } %>
+      </div>
+
+  </form>
+
+  
+  <% if (formMode == 'showDetails' || formMode == 'edit') { %>
     <h2>Szczegóły walk</h2>
     <table class="table-list">
-      <thead>
+        <thead>
         <tr>
           <th>Komisja</th>
           <th>Data walki</th>
           <th>Rezultat</th>
           <th>Ocena</th>
         </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Javaszewy</td>
-          <td>01.06.2019</td>
-          <td>Całkowity pogrom</td>
-          <td>2</td>
-        </tr>
-        <tr>
-          <td>Javaszewy</td>
-          <td>08.10.2019</td>
-          <td>Ocena z litości</td>
-          <td>3</td>
-        </tr>
-      </tbody>
+        </thead>
+        <tbody>
+        
+        <% for (let sc of stud.results) { %>
+          <% console.log(sc.dataValues) %>
+            <tr>
+              <td><a href="/results/details/<%=sc.dataValues._id%>"><%= sc.committee.dataValues.name %></a></td>
+                <td><%= sc.date.toISOString().split('T')[0] %></td>
+                <td><%= sc.resultName %></td>
+                <td><%= sc.grade %></td>
+            </tr>
+            
+        <% } %>
+        
+        </tbody>
     </table>
-    <div class="details-back">
-      <a class="list-actions-button-delete" href="/students">Powrót</a>
-    </div>
+  <% } %>
+
   </main>
   <%- include('../../fragments/footer.ejs') %>

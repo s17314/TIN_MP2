@@ -1,27 +1,49 @@
 <%- include('../../fragments/header.ejs') %>
 
   <main>
-    <h2>Szczegóły komisji</h2>
-    <form class="details-form">
-      <div class="form">
+    <script type="application/javascript" src="/js/validationCommitteeForm.js"></script>
+    <h2><%= pageTitle %></h2>
+    <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+      <input type="hidden" name="_id" value="<%= comm._id %>">
+
         <label for="name">Nazwa:<sup>*</sup></label>
-        <input type="text" name="name" id="name" value="Javaszewy" disabled />
-      </div>
-      <div class="form">
+        <input type="text" name="name" id="name" value="<%= comm.name %>" 
+          <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+        <span id="errorName" class="errors-text"></span>
+
         <label for="members">Liczba członków:<sup>*</sup></label>
-        <input type="text" name="members" id="members" value="3" disabled />
-      </div>
-      <div class="form">
+        <input type="text" name="members" id="members" value="<%= comm.members %>" 
+          <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+        <span id="errorMembers" class="errors-text"></span>
+
         <label for="difficulty">Poziom trudności:<sup>*</sup></label>
-        <input type="text" name="difficulty" id="difficulty" value="999999+" disabled />
-      </div>
-      <div class="form-buttons">
-        <a class="list-actions-button-edit" href="/committees/add">Edytuj</a>
-      </div>
+        <input type="text" name="difficulty" id="difficulty" value="<%= comm.difficulty %>" 
+          <%= (formMode == 'showDetails') ? 'disabled' : '' %> />
+        <span id="errorDifficulty" class="errors-text"></span>
+
+        <% if (formMode == 'showDetails') { %>
+          <div class="section-buttons">
+              <a href="/committees/edit/<%= comm._id %>" class="list-actions-button-edit">Edytuj</a>
+          </div>
+          <% } %>
+
+        <div class="form-buttons">
+          <p id="errorsSummary" class="errors-text"></p>
+          <% if (formMode != 'showDetails') { %>
+              <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+              <a class="form-button-cancel" href="/committees">Anuluj</a>
+          <% } else { %>
+              <a class="form-button-cancel" href="/committees">Powrót</a>
+          <% } %>
+        </div>
+
     </form>
 
+
+    <% if (formMode == 'showDetails' || formMode == 'edit') { %>
     <h2>Szczegóły walk</h2>
     <table class="table-list">
+
       <thead>
         <tr>
           <th>Student</th>
@@ -30,24 +52,23 @@
           <th>Ocena</th>
         </tr>
       </thead>
+
       <tbody>
-        <tr>
-          <td>Jan Kowalski</td>
-          <td>01.06.2019</td>
-          <td>Całkowity pogrom</td>
-          <td>2</td>
-        </tr>
-        <tr>
-          <td>Jan Kowalski</td>
-          <td>08.10.2019</td>
-          <td>Ocena z litości</td>
-          <td>3</td>
-        </tr>
+        <% for (let c of comm.results) { %>
+          <% console.log(c.dataValues) %>
+          <tr>
+            <td><a href="/results/details/<%=c.dataValues._id%>"><%= c.student.dataValues.firstName %> <%= c.student.dataValues.lastName %></a></td>
+              <td><%= c.date.toISOString().split('T')[0] %></td>
+              <td><%= c.resultName %></td>
+              <td><%= c.grade %></td>
+          </tr>
+            
+        <% } %>
       </tbody>
+
     </table>
-    <div class="details-back">
-      <a class="list-actions-button-delete" href="/committees">Powrót</a>
-    </div>
+  <% } %>
+
   </main>
 
   <%- include('../../fragments/footer.ejs') %>
